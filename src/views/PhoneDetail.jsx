@@ -22,7 +22,7 @@ const PhoneDetail = () => {
   const { addToCart } = useCart();
 
   const handleSelectStorage = (option) => {
-    setSelectedStorage(option.price);
+    setSelectedStorage(option);
   };
   const handleSelectColor = (color) => {
     setSelectedColor(color);
@@ -95,7 +95,7 @@ const PhoneDetail = () => {
                 {selectedStorage === null ? (
                   <p>From {product.basePrice} EUR</p>
                 ) : (
-                  <p>{selectedStorage} EUR</p>
+                  <p>{selectedStorage.price} EUR</p>
                 )}
               </div>
               <div
@@ -107,16 +107,14 @@ const PhoneDetail = () => {
               >
                 <p>STORAGE ¿HOW MUCH SPACE DO YOU NEED?</p>
                 <ul className="storage-box" style={{ paddingLeft: '0' }}>
-                  {product.storageOptions.map((option, index) => {
-                    return (
-                      <StorageBoxes
-                        key={index}
-                        option={option}
-                        onSelectStorage={handleSelectStorage}
-                        isSelected={option?.price === selectedStorage}
-                      />
-                    );
-                  })}
+                  {product.storageOptions.map((option, index) => (
+                    <StorageBoxes
+                      key={index}
+                      option={option}
+                      onSelectStorage={handleSelectStorage}
+                      isSelected={option?.price === selectedStorage?.price}
+                    />
+                  ))}
                 </ul>
                 <p>COLOR. PICK YOUR FAVORITE.</p>
                 <ul style={{ display: 'flex', gap: '16px', paddingLeft: '0' }}>
@@ -134,7 +132,9 @@ const PhoneDetail = () => {
               <button
                 disabled={(selectedStorage && selectedColor) === null}
                 className={'phoneDetail-button'}
-                onClick={() => addToCart(product)}
+                onClick={() =>
+                  addToCart(product, selectedColor, selectedStorage)
+                }
               >
                 AÑADIR
               </button>
