@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import Logo from '../assets/logo.png';
-// import CartIconBlack from '../assets/icons/CartIconBlack';
+import CartIconBlack from '../assets/icons/CartIconBlack.svg';
 import CartIconWhite from '../assets/icons/CartIconWhite.svg';
+import { useCart } from '../context/CartContext';
 
 const Header = () => {
+  const { cartItems } = useCart();
+
   return (
     <header className="header">
       {/* TODO: meter <nav> por accesibilidad pero ver que no choque con space-between */}
@@ -20,8 +23,11 @@ const Header = () => {
           gap: '6px',
         }}
       >
-        <img src={CartIconWhite} style={{ width: '16px', height: '16px' }} />
-        <p>0</p>
+        <img
+          src={cartItems.length > 0 ? CartIconBlack : CartIconWhite}
+          style={{ width: '16px', height: '16px' }}
+        />
+        <p>{cartItems.length}</p>
       </div>
     </header>
   );

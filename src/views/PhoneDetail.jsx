@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useCart } from '../context/CartContext';
 import { fetchProductById } from '../services/api';
 import { filterProducts } from '../utils/filterProducts';
 import ColorBoxes from '../components/ColorBoxes';
@@ -18,6 +19,7 @@ const PhoneDetail = () => {
 
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const handleSelectStorage = (option) => {
     setSelectedStorage(option.price);
@@ -132,6 +134,7 @@ const PhoneDetail = () => {
               <button
                 disabled={(selectedStorage && selectedColor) === null}
                 className={'phoneDetail-button'}
+                onClick={() => addToCart(product)}
               >
                 AÑADIR
               </button>
