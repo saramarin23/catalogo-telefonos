@@ -3,15 +3,10 @@
 const ColorBoxes = ({ color, onSelectColor, isSelected }) => {
   return (
     <>
-      <div className={`storage-container ${isSelected ? 'selected' : ''}`}>
+      <div className={`color-container${isSelected ? ' selected' : ''}`}>
         <div
-          style={{
-            backgroundColor: color.hexCode,
-            width: '20px',
-            height: '20px',
-            display: 'flex',
-            alignItems: 'center',
-          }}
+          className="color-container-fill"
+          style={{ backgroundColor: color.hexCode }}
           onClick={() => onSelectColor(color)}
         ></div>
       </div>

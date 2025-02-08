@@ -1,0 +1,17 @@
+.color-container {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  border: 1px solid #CCCCCC;
+  cursor: pointer;
+
+  &.selected {
+      border: 1px solid black;
+    }
+
+  &-fill {
+    width: 20px;
+    height: 20px;
+    margin: auto;
+  }
+}

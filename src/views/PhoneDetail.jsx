@@ -93,20 +93,20 @@ const PhoneDetail = () => {
                 }}
               >
                 <p>STORAGE ¿HOW MUCH SPACE DO YOU NEED?</p>
-                <ul className="storage-box">
+                <ul className="storage-box" style={{ paddingLeft: '0' }}>
                   {product.storageOptions.map((option, index) => {
                     return (
                       <StorageBoxes
                         key={index}
                         option={option}
                         onSelectStorage={handleSelectStorage}
-                        isSelected={option.price === selectedStorage}
+                        isSelected={option?.price === selectedStorage}
                       />
                     );
                   })}
                 </ul>
                 <p>COLOR. PICK YOUR FAVORITE.</p>
-                <ul style={{ display: 'flex' }}>
+                <ul style={{ display: 'flex', gap: '16px', paddingLeft: '0' }}>
                   {product.colorOptions.map((color) => {
                     return (
                       //TODO: añadir key
@@ -114,6 +114,7 @@ const PhoneDetail = () => {
                         <ColorBoxes
                           color={color}
                           onSelectColor={handleSelectColor}
+                          isSelected={color?.name === selectedColor?.name}
                         />
                       </>
                     );
