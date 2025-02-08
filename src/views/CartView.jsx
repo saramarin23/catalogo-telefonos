@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import CartItemCard from '../components/CartItemCard';
 
 const CartView = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -12,24 +13,15 @@ const CartView = () => {
   return (
     <>
       <h1>CART ({cartItems.length})</h1>
-      {cartItems.map((item, index) => (
-        <div key={index}>
-          <img src={item.color.imageUrl} />
-          <div>
-            <p>{item.name}</p>
-            <p>
-              {item.storage.capacity} | {item.color.name}{' '}
-            </p>
-            <p>{item.storage.price} EUR</p>
-            <button
-              onClick={() => removeFromCart(item)}
-              style={{ color: 'red' }}
-            >
-              Eliminar
-            </button>
-          </div>
-        </div>
-      ))}
+      <div style={{ display: 'flex' }}>
+        {cartItems.map((item) => (
+          <CartItemCard
+            key={item.id}
+            item={item}
+            removeFromCart={removeFromCart}
+          />
+        ))}
+      </div>
 
       <Link to="/">
         <button>CONTINUE SHOPPING</button>
