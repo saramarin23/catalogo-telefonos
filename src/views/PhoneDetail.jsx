@@ -11,8 +11,18 @@ const PhoneDetail = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [selectedStorage, setSelectedStorage] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const handleSelectStorage = (option) => {
+    setSelectedStorage(option.price);
+  };
+  const handleSelectColor = (color) => {
+    setSelectedColor(color);
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -49,7 +59,15 @@ const PhoneDetail = () => {
               width: '1200px',
             }}
           >
-            <img src={product.imageUrl} className="phoneDetail-image" alt="" />
+            <img
+              src={
+                selectedColor
+                  ? selectedColor.imageUrl
+                  : product.colorOptions[0].imageUrl
+              }
+              className="phoneDetail-image"
+              alt=""
+            />
             <div
               style={{ display: 'flex', gap: '64px', flexDirection: 'column' }}
             >
@@ -61,7 +79,11 @@ const PhoneDetail = () => {
                 }}
               >
                 <p>{product.name}</p>
-                <p>From {product.basePrice} EUR</p>
+                {selectedStorage === null ? (
+                  <p>From {product.basePrice} EUR</p>
+                ) : (
+                  <p>{selectedStorage} EUR</p>
+                )}
               </div>
               <div
                 style={{
@@ -73,7 +95,14 @@ const PhoneDetail = () => {
                 <p>STORAGE ¿HOW MUCH SPACE DO YOU NEED?</p>
                 <ul className="storage-box">
                   {product.storageOptions.map((option, index) => {
-                    return <StorageBoxes key={index} option={option} />;
+                    return (
+                      <StorageBoxes
+                        key={index}
+                        option={option}
+                        onSelectStorage={handleSelectStorage}
+                        isSelected={option.price === selectedStorage}
+                      />
+                    );
                   })}
                 </ul>
                 <p>COLOR. PICK YOUR FAVORITE.</p>
@@ -82,13 +111,19 @@ const PhoneDetail = () => {
                     return (
                       //TODO: añadir key
                       <>
-                        <ColorBoxes color={color} />
+                        <ColorBoxes
+                          color={color}
+                          onSelectColor={handleSelectColor}
+                        />
                       </>
                     );
                   })}
                 </ul>
+                {selectedColor && <p>{selectedColor.name}</p>}
               </div>
-              <button>AÑADIR</button>
+              <button disabled={(selectedStorage && selectedColor) === null}>
+                AÑADIR
+              </button>
             </div>
           </div>
           <p>ESPECIFICACIONES</p>
