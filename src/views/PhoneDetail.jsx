@@ -69,7 +69,12 @@ const PhoneDetail = () => {
               alt=""
             />
             <div
-              style={{ display: 'flex', gap: '64px', flexDirection: 'column' }}
+              style={{
+                display: 'flex',
+                gap: '64px',
+                flexDirection: 'column',
+                width: '380px',
+              }}
             >
               <div
                 style={{
@@ -122,20 +127,73 @@ const PhoneDetail = () => {
                 </ul>
                 {selectedColor && <p>{selectedColor.name}</p>}
               </div>
-              <button disabled={(selectedStorage && selectedColor) === null}>
+              <button
+                disabled={(selectedStorage && selectedColor) === null}
+                className={'phoneDetail-button'}
+              >
                 AÑADIR
               </button>
             </div>
           </div>
-          <p>ESPECIFICACIONES</p>
-          <p>{product.specs.screen}</p>
-          <p>{product.specs.resolution}</p>
-          <p>{product.specs.processor}</p>
-          <p>{product.specs.mainCamera}</p>
-          <p>{product.specs.selfieCamera}</p>
-          <p>{product.specs.battery}</p>
-          <p>{product.specs.os}</p>
-          <p>{product.specs.screenRefreshRate}</p>
+          <div
+            className="specs"
+            style={{
+              width: '1200px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '40px',
+            }}
+          >
+            <div style={{ display: 'flex' }}>
+              <p>SPECIFICATIONS</p>
+            </div>
+            <div>
+              <div className="specs-row">
+                <p className="specs-row-label">BRAND</p>
+                <p>{product.brand}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">NAME</p>
+                <p>{product.name}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">DESCRIPTION</p>
+                <p>{product.description}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">SCREEN</p>
+                <p>{product.specs.screen}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">SCREEN</p>
+                <p>{product.specs.resolution}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">PROCESSOR</p>
+                <p>{product.specs.processor}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">MAIN CAMERA</p>
+                <p>{product.specs.mainCamera}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">SELFIE CAMERA</p>
+                <p>{product.specs.selfieCamera}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">BATTERY</p>
+                <p>{product.specs.battery}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">OS</p>
+                <p>{product.specs.os}</p>
+              </div>
+              <div className="specs-row">
+                <p className="specs-row-label">SCREEN REFRESH RATE</p>
+                <p>{product.specs.screenRefreshRate}</p>
+              </div>
+            </div>
+          </div>
           <p>SIMILAR PRODUCTS</p>
           <ul>
             {product.similarProducts.map((product) => (
