@@ -1,0 +1,12 @@
+.cartItemCard {
+  width: 548px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  padding: 40px 40px 40px 0;
+
+  & > img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+}
