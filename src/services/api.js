@@ -6,8 +6,10 @@ const url = new URL(`${API_URL}/products`);
 export const fetchAllProducts = async (searchQuery = '') => {
   try {
 
-    if (searchQuery.trim() !== '') {
-      url.searchParams.append('search', searchQuery);
+    if (searchQuery.trim()) {
+      url.searchParams.set('search', searchQuery);
+    } else {
+      url.searchParams.delete('search')
     }
 
     const response = await fetch(url, {
