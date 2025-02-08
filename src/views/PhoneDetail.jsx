@@ -1,10 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchProductById } from '../services/api';
+import { filterProducts } from '../utils/filterProducts';
 import ColorBoxes from '../components/ColorBoxes';
 import StorageBoxes from '../components/StorageBoxes';
 import LoadingBar from '../assets/LoadingBar.png';
 import ChevronLeft from '../assets/icons/ChevronLeft.svg';
+import PhoneCard from '../components/PhoneCard';
 
 const PhoneDetail = () => {
   const [product, setProduct] = useState(null);
@@ -28,7 +30,12 @@ const PhoneDetail = () => {
     const fetchProduct = async () => {
       try {
         const phoneData = await fetchProductById(id);
-        setProduct(phoneData);
+        const filteredProduct = {
+          ...phoneData,
+          similarProducts: filterProducts(phoneData.similarProducts),
+        };
+
+        setProduct(filteredProduct);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -45,18 +52,17 @@ const PhoneDetail = () => {
         <img src={LoadingBar} style={{ position: 'relative', top: '80px' }} />
       )}
       {error && <p>Error: {error}</p>}
-      <div className="backButton" onClick={() => navigate(-1)}>
+      <div className="backButton" onClick={() => navigate('/')}>
         <img src={ChevronLeft} className="backButton_icon" />
         <p>BACK</p>
       </div>
       {product && (
-        <>
+        <div style={{ width: '1200px', margin: '0 auto' }}>
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               top: '234px',
-              width: '1200px',
             }}
           >
             <img
@@ -112,18 +118,14 @@ const PhoneDetail = () => {
                 </ul>
                 <p>COLOR. PICK YOUR FAVORITE.</p>
                 <ul style={{ display: 'flex', gap: '16px', paddingLeft: '0' }}>
-                  {product.colorOptions.map((color) => {
-                    return (
-                      //TODO: añadir key
-                      <>
-                        <ColorBoxes
-                          color={color}
-                          onSelectColor={handleSelectColor}
-                          isSelected={color?.name === selectedColor?.name}
-                        />
-                      </>
-                    );
-                  })}
+                  {product.colorOptions.map((color, index) => (
+                    <ColorBoxes
+                      key={index}
+                      color={color}
+                      onSelectColor={handleSelectColor}
+                      isSelected={color?.name === selectedColor?.name}
+                    />
+                  ))}
                 </ul>
                 {selectedColor && <p>{selectedColor.name}</p>}
               </div>
@@ -138,12 +140,12 @@ const PhoneDetail = () => {
           <div
             className="specs"
             style={{
-              width: '1200px',
               display: 'flex',
               flexDirection: 'column',
               gap: '40px',
             }}
           >
+            {/* TODO: refactor */}
             <div style={{ display: 'flex' }}>
               <p>SPECIFICATIONS</p>
             </div>
@@ -194,19 +196,20 @@ const PhoneDetail = () => {
               </div>
             </div>
           </div>
-          <p>SIMILAR PRODUCTS</p>
-          <ul>
-            {product.similarProducts.map((product) => (
-              <li key={product.id}>
-                <img src={product.imageUrl} />
-                <p>{product.brand}</p>
-                <p>{product.name}</p>
-                <p>{product.basePrice}</p>
-              </li>
-            ))}
-          </ul>
-          {/* TODO: carrusel */}
-        </>
+          <div
+            style={{
+              marginTop: '100px',
+            }}
+            className="carousel"
+          >
+            <p>SIMILAR ITEMS</p>
+            <ul className="carousel-list">
+              {product.similarProducts.map((product) => (
+                <PhoneCard key={product.id} product={product} />
+              ))}
+            </ul>
+          </div>
+        </div>
       )}
     </>
   );
