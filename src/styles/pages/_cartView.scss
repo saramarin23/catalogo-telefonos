@@ -6,14 +6,21 @@
   gap: 40px;
 }
 
-.cartview-footer {
-  width: 90%;
-  padding: 24px 100px 56px 100px;
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 0;
-  @media (max-width: $breakpoint-md) {
-    padding: 16px 24px;
+.cartview {
+  &-title {
+    margin: 0;
+    font-size: $font-title;
+  }
+
+  &-footer {
+    width: 90%;
+    padding: 24px 100px 56px 100px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    @media (max-width: $breakpoint-md) {
+      padding: 16px 24px;
+    }
   }
 }

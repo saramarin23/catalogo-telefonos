@@ -18,27 +18,25 @@ const SearchBar = ({ searchTerm, onSearchChange, products }) => {
 
   return (
     <div className="searchBar">
-      <input
-        ref={inputRef}
-        type="text"
-        value={searchTerm}
-        aria-label={TEXTS.PHONE_LIST.SEARCH_PLACEHOLDER}
-        placeholder={TEXTS.PHONE_LIST.SEARCH_PLACEHOLDER}
-        onChange={onSearchChange}
-      />
-      {searchTerm && (
-        <img
-          src={X}
-          onClick={clearSearchQuery}
-          style={{
-            position: 'absolute',
-            cursor: 'pointer',
-            top: '127px',
-            left: '1200px',
-          }}
-          alt="clear search"
+      <div className="searchBar-input_container">
+        <input
+          className="searchBar-input"
+          ref={inputRef}
+          type="text"
+          value={searchTerm}
+          aria-label={TEXTS.PHONE_LIST.SEARCH_PLACEHOLDER}
+          placeholder={TEXTS.PHONE_LIST.SEARCH_PLACEHOLDER}
+          onChange={onSearchChange}
         />
-      )}
+        {searchTerm && (
+          <img
+            src={X}
+            onClick={clearSearchQuery}
+            className="searchBar-input_clearIcon"
+            alt="clear search"
+          />
+        )}
+      </div>
       <p>{(products.length + ' ' + TEXTS.PHONE_LIST.RESULTS).toUpperCase()}</p>
     </div>
   );

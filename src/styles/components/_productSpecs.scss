@@ -1,6 +1,10 @@
 .specs {
   margin-top: 100px;
 
+  &-title {
+    font-size: $font-title;
+  }
+
   &-row {
     padding: 16px 0;
     display: flex;

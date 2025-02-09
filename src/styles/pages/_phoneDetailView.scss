@@ -1,4 +1,5 @@
 .backButton {
+  width: fit-content;
   margin-left: 100px;
   display: flex;
   align-items: center;
@@ -41,23 +42,41 @@
     max-height: 630px;
   }
 
-  &-right-container {
+  &-name_text {
+    font-size: $font-title;
+  }
+
+  &-right_container {
     display: flex;
     gap: 64px;
     flex-direction: column;
     width: 380px;
   }
 
-  &-price-container {
-    display: flex;
-    gap: 11px;
-    flex-direction: column;
+  &-price {
+    &_container {
+      display: flex;
+      gap: 11px;
+      flex-direction: column;
+    }
+
+    &_text {
+      font-size: 14px;
+    }
   }
 
-  &-choose-container {
+  &-storage_text {
+    font-size: 12px;
+  }
+
+  &-choose_container {
     display: flex;
     gap: 14px;
     flex-direction: column;
+  }
+
+  &-similarItems_text {
+    font-size: $font-title;
   }
 }
 

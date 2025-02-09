@@ -6,26 +6,43 @@
     font-size: 12px;
     font-weight: 300;
   }
-}
 
-input {
-  width: 100%;
-  height: 27px;
-  border: none;
-  border-bottom: 0.5px solid $black;
-  padding-bottom: 8px;
-  gap: 12px;
-
-  &:focus {
-    border: none;
-    outline: none;
-    border-bottom: 0.5px solid $black;
-  }
-
-  &::placeholder {
-    color: $gray;
+  &-input {
+    width: 100%;
+    height: 27px;
+    font-family: $font-primary;
     font-size: 16px;
-    font-weight: 300;
-    font-family: "Helvetica Neue";
+    border: none;
+    border-bottom: 0.5px solid $black;
+    padding: 0 0 4px 8px;
+    gap: 12px;
+    box-sizing: border-box;
+
+    &:focus {
+      border: none;
+      outline: none;
+      border-bottom: 0.5px solid $black;
+    }
+
+    &::placeholder {
+      color: $gray;
+      font-size: 16px;
+      font-weight: 300;
+      font-family: "Helvetica Neue";
+    }
+
+    &_container {
+      width: 100%;
+      position: relative;
+      display: inline-block;
+    }
+
+    &_clearIcon {
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      right: 10px;
+      transform: translate(50%);
+    }
   }
 }

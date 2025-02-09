@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { TEXTS } from '../utils/texts';
 
 const PhoneCard = ({ product }) => {
   return (
@@ -9,10 +10,12 @@ const PhoneCard = ({ product }) => {
           <img src={product.imageUrl} alt="Phone image" />
         </div>
         <div>
-          <p>{product.brand.toUpperCase()}</p>
+          <p className="card-brand">{product.brand.toUpperCase()}</p>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <p>{product.name.toUpperCase()}</p>
-            <p>{product.basePrice}</p>
+            <p className="card-name">{product.name.toUpperCase()}</p>
+            <p className="card-name">
+              {product.basePrice + ' ' + TEXTS.PHONE_DETAIL.EUR}
+            </p>
           </div>
         </div>
       </div>

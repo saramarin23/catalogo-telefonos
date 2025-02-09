@@ -19,7 +19,7 @@ const ProductSpecs = ({ product }) => {
 
   return (
     <div className="specs">
-      <p>{TEXTS.PHONE_DETAIL.SPECIFICATIONS_TITLE}</p>
+      <p className="specs-title">{TEXTS.PHONE_DETAIL.SPECIFICATIONS_TITLE}</p>
       <div style={{ borderTop: '0.5px solid #000000' }}>
         {specList.map((spec, index) => (
           <div key={index} className="specs-row">
