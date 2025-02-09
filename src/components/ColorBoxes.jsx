@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */ //TODO: instalar proptypes una vez
+import PropTypes from 'prop-types';
 
 const ColorBoxes = ({ color, onSelectColor, isSelected }) => {
   return (
@@ -12,6 +12,14 @@ const ColorBoxes = ({ color, onSelectColor, isSelected }) => {
       </div>
     </>
   );
+};
+
+ColorBoxes.propTypes = {
+  color: PropTypes.shape({
+    hexCode: PropTypes.string.isRequired,
+  }).isRequired,
+  onSelectColor: PropTypes.func.isRequired,
+  isSelected: PropTypes.boolean.isRequired,
 };
 
 export default ColorBoxes;

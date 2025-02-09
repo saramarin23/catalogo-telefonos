@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */ //TODO: instalar proptypes
+import PropTypes from 'prop-types';
 import { TEXTS } from '../utils/texts';
 
 const CartItemCard = ({ item, removeFromCart }) => {
@@ -34,6 +34,21 @@ const CartItemCard = ({ item, removeFromCart }) => {
       </div>
     </div>
   );
+};
+
+CartItemCard.propTypes = {
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    color: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string,
+    }),
+    storage: PropTypes.shape({
+      capacity: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+  removeFromCart: PropTypes.func.isRequired,
 };
 
 export default CartItemCard;

@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */ //TODO: instalar proptypes
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const PhoneCard = ({ product }) => {
@@ -18,6 +18,16 @@ const PhoneCard = ({ product }) => {
       </div>
     </Link>
   );
+};
+
+PhoneCard.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
+    brand: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    basePrice: PropTypes.string,
+  }).isRequired,
 };
 
 export default PhoneCard;

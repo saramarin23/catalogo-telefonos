@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { TEXTS } from '../utils/texts';
 const ProductSpecs = ({ product }) => {
   if (!product?.specs) return null;
@@ -30,6 +30,24 @@ const ProductSpecs = ({ product }) => {
       </div>
     </div>
   );
+};
+
+ProductSpecs.propTypes = {
+  product: PropTypes.shape({
+    brand: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    specs: PropTypes.shape({
+      screen: PropTypes.string,
+      resolution: PropTypes.string,
+      processor: PropTypes.string,
+      mainCamera: PropTypes.string,
+      selfieCamera: PropTypes.string,
+      battery: PropTypes.string,
+      os: PropTypes.string,
+      screenRefreshRate: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default ProductSpecs;

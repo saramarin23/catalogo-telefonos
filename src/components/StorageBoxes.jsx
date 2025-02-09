@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */ //TODO: instalar proptypes una vez
+import PropTypes from 'prop-types';
 
 const StorageBoxes = ({ option, onSelectStorage, isSelected }) => {
   return (
@@ -9,6 +9,14 @@ const StorageBoxes = ({ option, onSelectStorage, isSelected }) => {
       <p>{option.capacity}</p>
     </div>
   );
+};
+
+StorageBoxes.propTypes = {
+  option: PropTypes.shape({
+    capacity: PropTypes.string.isRequired,
+  }).isRequired,
+  onSelectStorage: PropTypes.func.isRequired,
+  isSelected: PropTypes.boolean.isRequired,
 };
 
 export default StorageBoxes;
