@@ -9,4 +9,15 @@
     max-width: 100%;
     max-height: 200px;
   }
+
+  &-button_delete {
+    background-color: $white;
+    color: $red;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
 }
