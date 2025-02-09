@@ -57,16 +57,20 @@ npm run dev
 yarn dev
 ```
 
-La aplicación se abrirá en el puerto 5173 (http://localhost:5173)
+La aplicación se abrirá en el puerto [5173](http://localhost:5173)
 
-### Modo producción
+### Modo producción local
 
 ```bash
 npm run build
 npm run preview
 ```
 
-La aplicación se abrirá en el puerto 4173 (http://localhost:4173)
+La aplicación se abrirá en el puerto [4173](http://localhost:4173)
+
+### Despliegue en producción
+
+La aplicación está correctamente desplegada en Vercel y se puede acceder a ella en: [Catálogo de teléfonos Vercel](https://catalogo-telefonos.vercel.app/)
 
 ## **Testing**
 
