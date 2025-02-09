@@ -1,5 +1,12 @@
 # Tienda de móviles
 
+- [Descripción](#descripción)
+- [Stack tecnológico](#stack-tecnológico-y-librerías)
+- [Instalación](#instalación)
+- [Ejecución de la app](#ejecución-de-la-app)
+- [Variables de entorno](#variables-de-entorno)
+- [Arquitectura](#arquitectura-del-proyecto)
+
 ## **Descripción**
 
 Web de catálogo de teléfonos construida con **React** y **Vite**. Incluye funcionalidades como búsqueda en tiempo real, carrito de la compra con persistencia de datos (LocalStorage) y una interfaz responsiva que se adapta al ancho de la pantalla.
@@ -72,9 +79,9 @@ La aplicación se abrirá en el puerto [4173](http://localhost:4173)
 
 La aplicación está correctamente desplegada en Vercel y se puede acceder a ella en: [Catálogo de teléfonos Vercel](https://catalogo-telefonos.vercel.app/)
 
-## **Testing**
+### **Testing**
 
-### **Ejecutar tests**
+#### **Ejecutar tests**
 
 ```bash
 npm run test
@@ -84,12 +91,12 @@ yarn test
 
 ## Variables de entorno
 
-`.env` se ha eliminado por protección de datos, en su lugar se ha añadido un `.env.example` para simular el acceso.
+`.env` se ha añadido a la lista de ficheros en `.gitignore` por protección de datos, en su lugar se ha añadido un `.env.example` para simular el acceso.
 
 ### Configuración variables de entorno:
 
 1. Copia el archivo `.env.example` en la carpeta raíz del proyecto y renómbralo como `.env`.
-2. Añade los valores necesarios en el archivo `.env` con la información del pdf de la prueba técnica.
+2. Añade los valores en el archivo `.env` con la información del pdf de la prueba técnica.
 
 ## Arquitectura del proyecto
 
