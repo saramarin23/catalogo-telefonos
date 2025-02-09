@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../assets/logo.png';
+import Logo from '../assets/Logo.png';
 import CartIconBlack from '../assets/icons/CartIconBlack.svg';
 import CartIconWhite from '../assets/icons/CartIconWhite.svg';
 import { useCart } from '../context/CartContext';
@@ -10,9 +10,8 @@ const Header = () => {
 
   return (
     <header className="header">
-      {/* TODO: meter <nav> por accesibilidad pero ver que no choque con space-between */}
       <Link to="/">
-        <img src={Logo} className="logo" />
+        <img src={Logo} className="logo" alt="Website logo" />
       </Link>
       {location.pathname !== '/cart' && (
         <Link

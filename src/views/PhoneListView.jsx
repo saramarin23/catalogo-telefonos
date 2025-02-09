@@ -21,7 +21,7 @@ const PhoneList = () => {
           products={products}
         />
       )}
-      {loading && <img src={LoadingBar} alt="Cargando productos" />}
+      {loading && <img src={LoadingBar} alt="Loading products" />}
       {error && <p>{error}</p>}
       {!loading && (
         <div className="grid-phones">
