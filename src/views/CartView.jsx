@@ -29,7 +29,7 @@ const CartView = () => {
 
   return (
     <>
-      <img src={LoadingBar} />
+      {cartItems.length > 0 && <img src={LoadingBar} />}
       <div style={{ position: 'relative', top: '40px', padding: '12px 100px' }}>
         <p style={{ fontSize: '24px' }}>
           {TEXTS.CART.TITLE.toUpperCase()} ({cartItems.length})
