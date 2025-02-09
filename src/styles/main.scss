@@ -1,0 +1,17 @@
+@import './abstracts/variables';
+@import './base/reset';
+@import './base/typography';
+@import './base/links';
+
+@import './pages/phoneListView.scss';
+@import './pages/phoneDetailView.scss';
+@import './pages/cartView.scss';
+
+@import './components/header';
+@import './components/searchBar';
+@import './components/phoneCard';
+@import './components/colorBoxes';
+@import './components/storageBoxes';
+@import './components/cartItemCard';
+@import './components/productSpecs';
+@import './components/button';

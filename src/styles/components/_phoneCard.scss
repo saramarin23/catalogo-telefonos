@@ -1,0 +1,25 @@
+.card {
+  width: 100%;
+  height: 377px;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border: 0.5px solid $black;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &-image {
+      max-width: 312px;
+      max-height: 230px;
+      margin: 0 auto;
+    
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+}

@@ -1,6 +1,4 @@
 .searchBar {
-  // position: relative;
-  // top: 80px;
   padding: 12px 100px;
   gap: 12px;
   
@@ -9,7 +7,6 @@
     font-weight: 300;
   }
 }
-
 
 input {
   width: 100%;
@@ -26,7 +23,7 @@ input {
   }
 
   &::placeholder {
-    color: #AAAAAA;
+    color: $gray;
     font-size: 16px;
     font-weight: 300;
     font-family: "Helvetica Neue";
