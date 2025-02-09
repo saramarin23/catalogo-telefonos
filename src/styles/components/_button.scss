@@ -1,0 +1,40 @@
+.button {
+  min-width: 260px;
+  padding: 12px 32px;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+
+  &.primary {
+    color: $white;
+    background-color: #1B1A18;
+    border: none;
+
+    &:hover {
+      background-color: #282624;
+    }
+  }
+
+  &.secondary {
+    color: $black;
+    background-color: $white;
+    border: 0.5px solid #1B1A18;
+
+    &:hover {
+      color: #504D49;
+      background-color: $white;
+      border: 0.5px solid #504D49;
+    }
+  }
+
+  &.disabled {
+    border: 0.5px solid #DBD9D7;
+    color: #C2BFBC;
+    background-color: #F3F2F2;
+    cursor: default;
+
+    &:hover {
+      background-color: #F3F2F2;
+    }
+  }
+}

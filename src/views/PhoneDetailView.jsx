@@ -10,6 +10,7 @@ import LoadingBar from '../assets/LoadingBar.png';
 import ChevronLeft from '../assets/icons/ChevronLeft.svg';
 import PhoneCard from '../components/PhoneCard';
 import ProductSpecs from '../components/ProductSpecs';
+import Button from '../components/Button';
 
 const PhoneDetail = () => {
   const [product, setProduct] = useState(null);
@@ -118,15 +119,16 @@ const PhoneDetail = () => {
                 </ul>
                 {selectedColor && <p>{selectedColor.name}</p>}
               </div>
-              <button
-                disabled={(selectedStorage && selectedColor) === null}
-                className={'phoneDetail-button'}
-                onClick={() =>
-                  addToCart(product, selectedColor, selectedStorage)
+              <Button
+                disabled={!selectedStorage || !selectedColor}
+                variant="primary"
+                text={TEXTS.PHONE_DETAIL.ADD_BUTTON.toUpperCase()}
+                onClick={
+                  selectedColor && selectedStorage
+                    ? () => addToCart(product, selectedColor, selectedStorage)
+                    : null
                 }
-              >
-                {TEXTS.PHONE_DETAIL.ADD_BUTTON.toUpperCase()}
-              </button>
+              />
             </div>
           </div>
           <ProductSpecs product={product} />

@@ -17,20 +17,3 @@
     padding: 16px 24px;
   }
 }
-
-.cartview-button-continue, .cartview-button-pay {
-  width: 260px;
-  height: 56px;
-  padding: 20px 32px;
-  cursor: pointer;
-}
-.cartview-button-continue {
-  color: $black;
-  background-color: $white;
-  border: 0.5px solid #1B1A18;
-}
-.cartview-button-pay {
-  color: $white;
-  background-color: $black;
-  border: none;
-}

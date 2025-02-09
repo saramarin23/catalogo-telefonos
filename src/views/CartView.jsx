@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { TEXTS } from '../utils/texts';
 import { useCart } from '../context/CartContext';
 import CartItemCard from '../components/CartItemCard';
+import Button from '../components/Button';
 import LoadingBar from '../assets/LoadingBar.png';
 
 const CartView = () => {
@@ -11,7 +12,7 @@ const CartView = () => {
   const isMobile = width < 768;
 
   const totalPrice = cartItems.reduce(
-    (total, item) => total + item.storage.price,
+    (total, item) => total + item?.storage.price,
     0,
   );
 
@@ -36,13 +37,14 @@ const CartView = () => {
         </p>
       </div>
       <div className="cartItems-container">
-        {cartItems.map((item) => (
-          <CartItemCard
-            key={item.id}
-            item={item}
-            removeFromCart={removeFromCart}
-          />
-        ))}
+        {cartItems.length > 0 &&
+          cartItems.map((item) => (
+            <CartItemCard
+              key={item.id}
+              item={item}
+              removeFromCart={removeFromCart}
+            />
+          ))}
       </div>
       {isMobile ? (
         <div style={{ padding: '16px 16px 24px 16px' }}>
@@ -63,17 +65,19 @@ const CartView = () => {
                 {TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
               </button>
             </Link>
-            <button className="cartview-button-pay">
-              {TEXTS.CART.PAY_BUTTON.toUpperCase}
-            </button>
+            <Button
+              variant="secondary"
+              text={TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
+            />
           </div>
         </div>
       ) : (
         <div className="cartview-footer">
           <Link to="/">
-            <button className="cartview-button-continue">
-              {TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
-            </button>
+            <Button
+              variant="secondary"
+              text={TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
+            />
           </Link>
           {cartItems.length > 0 && (
             <div style={{ display: 'flex', gap: '80px' }}>
@@ -83,9 +87,10 @@ const CartView = () => {
                 <p>{TEXTS.CART.TOTAL.toUpperCase()}</p>
                 <p>{totalPrice + ' ' + TEXTS.CART.EUR}</p>
               </div>
-              <button className="cartview-button-pay">
-                {TEXTS.CART.PAY_BUTTON.toUpperCase()}
-              </button>
+              <Button
+                variant="primary"
+                text={TEXTS.CART.PAY_BUTTON.toUpperCase()}
+              />
             </div>
           )}
         </div>
