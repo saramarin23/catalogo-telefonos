@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { TEXTS } from '../utils/texts';
 import { useCart } from '../context/CartContext';
 import CartItemCard from '../components/CartItemCard';
 import LoadingBar from '../assets/LoadingBar.png';
@@ -30,7 +31,9 @@ const CartView = () => {
     <>
       <img src={LoadingBar} />
       <div style={{ position: 'relative', top: '40px', padding: '12px 100px' }}>
-        <p style={{ fontSize: '24px' }}>CART ({cartItems.length})</p>
+        <p style={{ fontSize: '24px' }}>
+          {TEXTS.CART.TITLE.toUpperCase()} ({cartItems.length})
+        </p>
       </div>
       <div className="cartItems-container">
         {cartItems.map((item) => (
@@ -50,24 +53,26 @@ const CartView = () => {
                 justifyContent: 'space-between',
               }}
             >
-              <p>TOTAL</p>
-              <p>{totalPrice} EUR</p>
+              <p>{TEXTS.CART.TOTAL.toUpperCase()}</p>
+              <p>{totalPrice + ' ' + TEXTS.CART.EUR}</p>
             </div>
           )}
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Link to="/">
               <button className="cartview-button-continue">
-                CONTINUE SHOPPING
+                {TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
               </button>
             </Link>
-            <button className="cartview-button-pay">PAY</button>
+            <button className="cartview-button-pay">
+              {TEXTS.CART.PAY_BUTTON.toUpperCase}
+            </button>
           </div>
         </div>
       ) : (
         <div className="cartview-footer">
           <Link to="/">
             <button className="cartview-button-continue">
-              CONTINUE SHOPPING
+              {TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
             </button>
           </Link>
           {cartItems.length > 0 && (
@@ -75,10 +80,12 @@ const CartView = () => {
               <div
                 style={{ display: 'flex', gap: '24px', alignItems: 'center' }}
               >
-                <p>TOTAL</p>
-                <p>{totalPrice} EUR</p>
+                <p>{TEXTS.CART.TOTAL.toUpperCase()}</p>
+                <p>{totalPrice + ' ' + TEXTS.CART.EUR}</p>
               </div>
-              <button className="cartview-button-pay">PAY</button>
+              <button className="cartview-button-pay">
+                {TEXTS.CART.PAY_BUTTON.toUpperCase()}
+              </button>
             </div>
           )}
         </div>

@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */ //TODO: instalar proptypes
+import { TEXTS } from '../utils/texts';
 
 const CartItemCard = ({ item, removeFromCart }) => {
   return (
     <div className="cartItemCard">
-      <img src={item.color.imageUrl} />
+      <img
+        src={item.color.imageUrl}
+        alt={`${item.name} ${item.color.name} ${item.storage.capacity}`}
+      />
       <div
         style={{
           display: 'flex',
@@ -16,16 +20,16 @@ const CartItemCard = ({ item, removeFromCart }) => {
           <p>
             {item.storage.capacity} | {item.color.name.toUpperCase()}{' '}
           </p>
-          <p>{item.storage.price} EUR</p>
+          <p>{item.storage.price + ' ' + TEXTS.CART.EUR}</p>
         </div>
         <div>
-          <label
+          <button
             onClick={() => removeFromCart(item)}
-            style={{ color: 'red', cursor: 'pointer' }}
+            className="cartItemCard-button_delete"
+            aria-label={`Remove ${item.name} from cart`}
           >
-            Eliminar
-          </label>
-          {/* TODO: revisar accesibilidad */}
+            {TEXTS.CART.DELETE_BUTTON}
+          </button>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { TEXTS } from '../utils/texts';
 const ProductSpecs = ({ product }) => {
   if (!product?.specs) return null;
 
@@ -18,7 +19,7 @@ const ProductSpecs = ({ product }) => {
 
   return (
     <div className="specs">
-      <p>SPECIFICATIONS</p>
+      <p>{TEXTS.PHONE_DETAIL.SPECIFICATIONS_TITLE}</p>
       <div>
         {specList.map((spec, index) => (
           <div key={index} className="specs-row">

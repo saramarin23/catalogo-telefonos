@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useRef, useEffect } from 'react';
+import { TEXTS } from '../utils/texts';
 import X from '../assets/icons/X.svg';
 
 const SearchBar = ({ searchTerm, onSearchChange, products }) => {
@@ -21,7 +22,8 @@ const SearchBar = ({ searchTerm, onSearchChange, products }) => {
         ref={inputRef}
         type="text"
         value={searchTerm}
-        placeholder="Search for a smartphone..."
+        aria-label={TEXTS.PHONE_LIST.SEARCH_PLACEHOLDER}
+        placeholder={TEXTS.PHONE_LIST.SEARCH_PLACEHOLDER}
         onChange={onSearchChange}
       />
       {searchTerm && (
@@ -34,9 +36,10 @@ const SearchBar = ({ searchTerm, onSearchChange, products }) => {
             top: '127px',
             left: '1200px',
           }}
+          alt="clear search"
         />
       )}
-      <p>{products.length} RESULTS</p>
+      <p>{(products.length + ' ' + TEXTS.PHONE_LIST.RESULTS).toUpperCase()}</p>
     </div>
   );
 };
