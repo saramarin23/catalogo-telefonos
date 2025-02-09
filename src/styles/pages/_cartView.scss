@@ -1,3 +1,11 @@
+.cartItems-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 60px;
+  margin: 0;
+  gap: 40px;
+}
+
 .cartview-footer {
   width: 90%;
   padding: 24px 100px 56px 100px;
@@ -5,6 +13,9 @@
   justify-content: space-between;
   position: fixed;
   bottom: 0;
+  @media (max-width: $breakpoint-md) {
+    padding: 16px 24px;
+  }
 }
 
 .cartview-button-continue, .cartview-button-pay {
@@ -13,13 +24,13 @@
   padding: 20px 32px;
   cursor: pointer;
 }
-  .cartview-button-continue-continue {
+.cartview-button-continue {
   color: $black;
   background-color: $white;
   border: 0.5px solid #1B1A18;
-  }
-  .cartview-button-pay {
+}
+.cartview-button-pay {
   color: $white;
   background-color: $black;
   border: none;
-  }
+}
