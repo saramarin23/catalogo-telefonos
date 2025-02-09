@@ -79,11 +79,13 @@ const PhoneDetail = () => {
                 alt="Phone image"
               />
             )}
-            <div className="phoneDetail-right-container">
-              <div className="phoneDetail-price-container">
-                <p>{product.name.toUpperCase()}</p>
+            <div className="phoneDetail-right_container">
+              <div className="phoneDetail-price_container">
+                <p className="phoneDetail-name_text">
+                  {product.name.toUpperCase()}
+                </p>
                 {selectedStorage === null ? (
-                  <p>
+                  <p className="phoneDetail-price_text">
                     {TEXTS.PHONE_DETAIL.FROM +
                       ' ' +
                       product.basePrice +
@@ -94,7 +96,7 @@ const PhoneDetail = () => {
                   <p>{selectedStorage.price + ' ' + TEXTS.PHONE_DETAIL.EUR}</p>
                 )}
               </div>
-              <div className="phoneDetail-choose-container" style={{}}>
+              <div className="phoneDetail-choose_container" style={{}}>
                 <p>{TEXTS.PHONE_DETAIL.STORAGE_TITLE}</p>
                 <ul className="storage-box" style={{ paddingLeft: '0' }}>
                   {product.storageOptions.map((option, index) => (
@@ -133,7 +135,9 @@ const PhoneDetail = () => {
           </div>
           <ProductSpecs product={product} />
           <div style={{ marginTop: '100px' }} className="carousel">
-            <p>{TEXTS.PHONE_DETAIL.SIMILAR_ITEMS}</p>
+            <p className="phoneDetail-similarItems_text">
+              {TEXTS.PHONE_DETAIL.SIMILAR_ITEMS}
+            </p>
             <ul className="carousel-list">
               {product.similarProducts.map((product) => (
                 <PhoneCard key={product.id} product={product} />
