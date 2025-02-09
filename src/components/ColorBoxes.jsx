@@ -19,7 +19,7 @@ ColorBoxes.propTypes = {
     hexCode: PropTypes.string.isRequired,
   }).isRequired,
   onSelectColor: PropTypes.func.isRequired,
-  isSelected: PropTypes.boolean,
+  isSelected: PropTypes.bool.isRequired,
 };
 
 export default ColorBoxes;

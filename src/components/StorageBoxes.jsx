@@ -16,7 +16,7 @@ StorageBoxes.propTypes = {
     capacity: PropTypes.string.isRequired,
   }).isRequired,
   onSelectStorage: PropTypes.func.isRequired,
-  isSelected: PropTypes.boolean,
+  isSelected: PropTypes.bool.isRequired,
 };
 
 export default StorageBoxes;

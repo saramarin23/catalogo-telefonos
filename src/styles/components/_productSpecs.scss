@@ -1,14 +1,14 @@
 .specs {
-margin-top: 100px;
-&-row {
-  padding: 16px 0;
-  display: flex;
-  gap: 48px;
-  border-bottom: 0.5px solid $black;
-  &-label {
-    width: 300px;
-    height: 15px;
-  }
-}
+  margin-top: 100px;
 
+  &-row {
+    padding: 16px 0;
+    display: flex;
+    gap: 48px;
+    border-bottom: 0.5px solid $black;
+    &-label {
+      width: 300px;
+      height: 15px;
+    }
+  }
 }

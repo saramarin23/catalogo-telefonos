@@ -45,7 +45,7 @@ CartItemCard.propTypes = {
     }),
     storage: PropTypes.shape({
       capacity: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     }),
   }).isRequired,
   removeFromCart: PropTypes.func.isRequired,
