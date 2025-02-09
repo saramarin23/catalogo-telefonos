@@ -26,7 +26,7 @@ PhoneCard.propTypes = {
     imageUrl: PropTypes.string,
     brand: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    basePrice: PropTypes.string,
+    basePrice: PropTypes.number,
   }).isRequired,
 };
 
