@@ -9,9 +9,9 @@ const PhoneCard = ({ product }) => {
           <img src={product.imageUrl} alt="Phone image" />
         </div>
         <div>
-          <p>{product.brand}</p>
+          <p>{product.brand.toUpperCase()}</p>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <p>{product.name}</p>
+            <p>{product.name.toUpperCase()}</p>
             <p>{product.basePrice}</p>
           </div>
         </div>
