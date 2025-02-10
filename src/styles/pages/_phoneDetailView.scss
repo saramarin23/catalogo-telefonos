@@ -13,8 +13,15 @@
 }
 
 .storage-box {
+  padding-left: 0;
   display: flex;
   cursor: pointer;
+}
+
+.color-box {
+  display: flex;
+  gap: 16px;
+  padding-left: 0;
 }
 
 .phoneDetail {
@@ -72,6 +79,7 @@
   }
 
   &-similarItems_text {
+    margin: 0;
     font-size: $font-title;
   }
 }
@@ -86,8 +94,9 @@
   overFlow-x: auto;
 
   &-list{
-    display: flex;
     padding: 0;
+    margin-top: 0;
+    display: flex;
   }
 
   &::-webkit-scrollbar {

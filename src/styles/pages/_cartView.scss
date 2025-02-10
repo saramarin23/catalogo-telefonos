@@ -6,10 +6,18 @@
   gap: 40px;
 }
 
-.cartview {
+.cartView {
   &-title {
-    margin: 0;
-    font-size: $font-title;
+    &_container {
+      position: relative; 
+      top: 40px; 
+      padding: 12px 100px;
+    }
+    
+    &_text {
+      margin: 0;
+      font-size: $font-title;
+    }
   }
 
   &-footer {

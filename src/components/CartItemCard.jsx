@@ -8,14 +8,8 @@ const CartItemCard = ({ item, removeFromCart }) => {
         src={item.color.imageUrl}
         alt={`${item.name} ${item.color.name} ${item.storage.capacity}`}
       />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div style={{ paddingTop: '40px', maxWidth: '100%' }}>
+      <div className="cartItemCard-container">
+        <div className="cartItemCard-container_text">
           <p>{item.name.toUpperCase()}</p>
           <p>
             {item.storage.capacity} | {item.color.name.toUpperCase()}{' '}

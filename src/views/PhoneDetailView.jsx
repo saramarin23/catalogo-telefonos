@@ -96,9 +96,9 @@ const PhoneDetail = () => {
                   <p>{selectedStorage.price + ' ' + TEXTS.PHONE_DETAIL.EUR}</p>
                 )}
               </div>
-              <div className="phoneDetail-choose_container" style={{}}>
+              <div className="phoneDetail-choose_container">
                 <p>{TEXTS.PHONE_DETAIL.STORAGE_TITLE}</p>
-                <ul className="storage-box" style={{ paddingLeft: '0' }}>
+                <ul className="storage-box">
                   {product.storageOptions.map((option, index) => (
                     <StorageBoxes
                       key={index}
@@ -109,7 +109,7 @@ const PhoneDetail = () => {
                   ))}
                 </ul>
                 <p>{TEXTS.PHONE_DETAIL.COLOR_TITLE}</p>
-                <ul style={{ display: 'flex', gap: '16px', paddingLeft: '0' }}>
+                <ul className="color-box">
                   {product.colorOptions.map((color, index) => (
                     <ColorBoxes
                       key={index}
@@ -134,7 +134,7 @@ const PhoneDetail = () => {
             </div>
           </div>
           <ProductSpecs product={product} />
-          <div style={{ marginTop: '100px' }} className="carousel">
+          <div className="carousel">
             <p className="phoneDetail-similarItems_text">
               {TEXTS.PHONE_DETAIL.SIMILAR_ITEMS}
             </p>

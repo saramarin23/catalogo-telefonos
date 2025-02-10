@@ -14,19 +14,10 @@ const Header = () => {
         <img src={Logo} className="logo" alt="Website logo" />
       </Link>
       {location.pathname !== '/cart' && (
-        <Link
-          to="/cart"
-          style={{
-            display: 'flex',
-            cursor: 'pointer',
-            padding: '4px 0',
-            alignItems: 'center',
-            gap: '6px',
-          }}
-        >
+        <Link to="/cart" className="cartIcon_container">
           <img
             src={cartItems.length > 0 ? CartIconBlack : CartIconWhite}
-            style={{ width: '16px', height: '16px' }}
+            className="cartIcon_icon"
           />
           <p>{cartItems.length}</p>
         </Link>
