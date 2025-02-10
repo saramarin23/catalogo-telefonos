@@ -27,9 +27,7 @@ const useFetchAllProducts = (search) => {
       }
     };
 
-    const timeoutSearch = setTimeout(() => {
-      loadProducts();
-    }, 600);
+    const timeoutSearch = setTimeout(loadProducts, 600);
 
     return () => clearTimeout(timeoutSearch);
   }, [search]);
