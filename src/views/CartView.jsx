@@ -31,8 +31,8 @@ const CartView = () => {
   return (
     <>
       {cartItems.length > 0 && <img src={LoadingBar} />}
-      <div style={{ position: 'relative', top: '40px', padding: '12px 100px' }}>
-        <p className="cartview-title">
+      <div className="cartView-title_container">
+        <p className="cartView-title_text">
           {TEXTS.CART.TITLE.toUpperCase()} ({cartItems.length})
         </p>
       </div>
@@ -61,18 +61,19 @@ const CartView = () => {
           )}
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Link to="/">
-              <button className="cartview-button-continue">
-                {TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
-              </button>
+              <Button
+                variant="secondary"
+                text={TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
+              />
             </Link>
             <Button
-              variant="secondary"
-              text={TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
+              variant="primary"
+              text={TEXTS.CART.PAY_BUTTON.toUpperCase()}
             />
           </div>
         </div>
       ) : (
-        <div className="cartview-footer">
+        <div className="cartView-footer">
           <Link to="/">
             <Button
               variant="secondary"
