@@ -7,34 +7,34 @@
 
   &.primary {
     color: $white;
-    background-color: #1B1A18;
+    background-color: $cod-gray;
     border: none;
 
     &:hover {
-      background-color: #282624;
+      background-color: $dark-gray;
     }
   }
 
   &.secondary {
     color: $black;
     background-color: $white;
-    border: 0.5px solid #1B1A18;
+    border: 0.5px solid $cod-gray;
 
     &:hover {
-      color: #504D49;
+      color: $fuscous-gray;
       background-color: $white;
-      border: 0.5px solid #504D49;
+      border: 0.5px solid $fuscous-gray;
     }
   }
 
   &.disabled {
-    border: 0.5px solid #DBD9D7;
-    color: #C2BFBC;
-    background-color: #F3F2F2;
+    border: 0.5px solid $timberwolf;
+    color: $cloud;
+    background-color: $concrete;
     cursor: default;
 
     &:hover {
-      background-color: #F3F2F2;
+      background-color: $concrete;
     }
   }
 }

@@ -2,11 +2,11 @@
   width: 24px;
   height: 24px;
   display: flex;
-  border: 1px solid #CCCCCC;
+  border: 1px solid $light-gray;
   cursor: pointer;
 
   &.selected {
-      border: 1px solid black;
+      border: 1px solid $black;
     }
 
   &-fill {
