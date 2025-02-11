@@ -16,6 +16,7 @@ export const CartProvider = ({ children }) => {
     setCartItems((prev) => [
       ...prev,
       {
+        uniqueKey: `${product.id}-${selectedStorage.capacity}-${selectedColor.hexCode}`,
         name: product.name,
         id: product.id,
         storage: selectedStorage,
@@ -23,8 +24,20 @@ export const CartProvider = ({ children }) => {
       },
     ]);
   };
+
   const removeFromCart = (product) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== product.id));
+    setCartItems((prev) => {
+      const updatedCart = [...prev];
+      const index = updatedCart.findIndex(
+        (item) => item.uniqueKey === product.uniqueKey,
+      );
+
+      if (index !== -1) {
+        updatedCart.splice(index, 1);
+      }
+
+      return updatedCart;
+    });
   };
 
   return (

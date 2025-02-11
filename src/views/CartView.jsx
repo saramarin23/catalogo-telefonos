@@ -40,7 +40,7 @@ const CartView = () => {
         {cartItems.length > 0 &&
           cartItems.map((item) => (
             <CartItemCard
-              key={item.id}
+              key={item.uniqueKey}
               item={item}
               removeFromCart={removeFromCart}
             />
@@ -66,10 +66,12 @@ const CartView = () => {
                 text={TEXTS.CART.CONTINUE_SHOPPING_BUTTON.toUpperCase()}
               />
             </Link>
-            <Button
-              variant="primary"
-              text={TEXTS.CART.PAY_BUTTON.toUpperCase()}
-            />
+            {cartItems.length > 0 && (
+              <Button
+                variant="primary"
+                text={TEXTS.CART.PAY_BUTTON.toUpperCase()}
+              />
+            )}
           </div>
         </div>
       ) : (
