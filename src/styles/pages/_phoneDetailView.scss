@@ -35,9 +35,10 @@
   }
 
   &-details {
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-sm) {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       top: 234px;
     }
   }
