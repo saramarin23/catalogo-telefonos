@@ -31,23 +31,25 @@ const CartView = () => {
   return (
     <>
       {cartItems.length > 0 && <img src={LoadingBar} />}
-      <div className="cartView-title_container">
-        <p className="cartView-title_text">
-          {TEXTS.CART.TITLE.toUpperCase()} ({cartItems.length})
-        </p>
-      </div>
-      <div className="cartItems-container">
-        {cartItems.length > 0 &&
-          cartItems.map((item) => (
-            <CartItemCard
-              key={item.uniqueKey}
-              item={item}
-              removeFromCart={removeFromCart}
-            />
-          ))}
+      <div className="cartView-container">
+        <div className="cartView-title_container">
+          <p className="cartView-title_text">
+            {TEXTS.CART.TITLE.toUpperCase()} ({cartItems.length})
+          </p>
+        </div>
+        <div className="cartView-items_container">
+          {cartItems.length > 0 &&
+            cartItems.map((item) => (
+              <CartItemCard
+                key={item.uniqueKey}
+                item={item}
+                removeFromCart={removeFromCart}
+              />
+            ))}
+        </div>
       </div>
       {isMobile ? (
-        <div style={{ padding: '16px 16px 24px 16px' }}>
+        <footer style={{ padding: '16px 16px 24px 16px' }}>
           {cartItems.length > 0 && (
             <div
               style={{
@@ -73,9 +75,9 @@ const CartView = () => {
               />
             )}
           </div>
-        </div>
+        </footer>
       ) : (
-        <div className="cartView-footer">
+        <footer className="cartView-footer">
           <Link to="/">
             <Button
               variant="secondary"
@@ -96,7 +98,7 @@ const CartView = () => {
               />
             </div>
           )}
-        </div>
+        </footer>
       )}
     </>
   );
